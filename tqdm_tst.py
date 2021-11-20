@@ -4,13 +4,17 @@ import numpy
 from functools import partial
 
 def cubes(intensity, bla):
-    print(f'running at intensity {intensity}')
-    return sum(sum(sum(numpy.random.rand(10*intensity,10*intensity,10*intensity))))
+    return sum(sum(sum(numpy.random.rand(100*intensity,100*intensity,100*intensity))))
 
 def intensityTestLoop():
     try:
-        int(input('\nSelect test intensity (0 to 10): '))
+        intensity = int(input('\nSelect test intensity (0 to 10): '))
     except:
+        print('\n Not an integer! \n')
+        intensityTestLoop()
+    if 0 <=  intensity <= 10:
+        return intensity
+    else:
         print('\n Expecting value between 0 and 10 \n')
         intensityTestLoop()
 
